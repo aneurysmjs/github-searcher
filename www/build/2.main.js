@@ -47,6 +47,7 @@ ProfileSearchResultsPageModule = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_github_service__ = __webpack_require__(264);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileSearchResultsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -59,6 +60,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the ProfileSearchResultsPage page.
  *
@@ -66,15 +68,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ProfileSearchResultsPage = (function () {
-    function ProfileSearchResultsPage(navCtrl, navParams) {
+    function ProfileSearchResultsPage(navCtrl, navParams, githubService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.githubService = githubService;
     }
     // prior to the view actually loading
     ProfileSearchResultsPage.prototype.ionViewWillLoad = function () {
         this.username = this.navParams.get('username');
-        console.log("this.username");
-        console.log(this.username);
+        if (this.username) {
+            this.getUserInformation();
+        }
+    };
+    ProfileSearchResultsPage.prototype.getUserInformation = function () {
+        this.githubService.mockGetUserInformation(this.username).subscribe(function (data) { return console.log(data); });
     };
     return ProfileSearchResultsPage;
 }());
@@ -84,9 +91,10 @@ ProfileSearchResultsPage = __decorate([
         selector: 'page-profile-search-results-page',
         template: "\n    <ion-header>\n      <ion-navbar color=\"dark\">\n        <ion-title>profileSearchResultsPage</ion-title>\n      </ion-navbar>\n    </ion-header>\n    \n    <ion-content padding>\n\n    </ion-content>\n  "
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_github_service__["a" /* GithubService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_github_service__["a" /* GithubService */]) === "function" && _c || Object])
 ], ProfileSearchResultsPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=profile-search-results-page.js.map
 
 /***/ })
