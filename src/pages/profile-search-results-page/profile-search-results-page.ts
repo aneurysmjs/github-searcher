@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GithubService } from "../../providers/github-service";
+import { User } from '../../models/user.interface';
 
-/**
- * Generated class for the ProfileSearchResultsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-profile-search-results-page',
@@ -19,13 +14,14 @@ import { GithubService } from "../../providers/github-service";
     </ion-header>
     
     <ion-content padding>
-
+      <search-results [user]="user"></search-results>
     </ion-content>
   `
 })
 export class ProfileSearchResultsPage {
 
   username: string;
+  user: User;
 
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
@@ -41,7 +37,7 @@ export class ProfileSearchResultsPage {
   }
 
   getUserInformation() {
-    this.githubService.mockGetUserInformation(this.username).subscribe(data => console.log(data))
+    this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
   }
 
 }
