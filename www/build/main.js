@@ -74317,7 +74317,11 @@ module.exports = g;
 var map = {
 	"../pages/profile-search-page/profile-search-page.module": [
 		259,
-		0
+		3
+	],
+	"../pages/profile-search-results-page/profile-search-results-page.module": [
+		261,
+		2
 	]
 };
 function webpackAsyncContext(req) {
@@ -74372,7 +74376,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                 links: [
-                    { loadChildren: '../pages/profile-search-page/profile-search-page.module#ProfileSearchPageModule', name: 'ProfileSearchPage', segment: 'profile-search-page', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/profile-search-page/profile-search-page.module#ProfileSearchPageModule', name: 'ProfileSearchPage', segment: 'profile-search-page', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/profile-search-results-page/profile-search-results-page.module#ProfileSearchResultsPageModule', name: 'ProfileSearchResultsPage', segment: 'profile-search-results-page', priority: 'low', defaultHistory: [] }
                 ]
             })
         ],
