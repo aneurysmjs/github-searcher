@@ -1,14 +1,50 @@
 webpackJsonp([0],{
 
-/***/ 265:
+/***/ 197:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RepositoriesComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var RepositoriesComponent = (function () {
+    function RepositoriesComponent() {
+    }
+    return RepositoriesComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* Input */])(),
+    __metadata("design:type", Object)
+], RepositoriesComponent.prototype, "repository", void 0);
+RepositoriesComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        selector: 'repositories',
+        template: "    \n    <ion-card>\n      <ion-card-header>\n        <ion-card-title>\n          {{repository.name}}\n        </ion-card-title>\n      </ion-card-header>\n      <ion-card-content>\n        {{repository.description}}\n      </ion-card-content>\n    </ion-card>\n  "
+    })
+], RepositoriesComponent);
+
+//# sourceMappingURL=repositories.component.js.map
+
+/***/ }),
+
+/***/ 267:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_search_results_page__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile_search_results_page__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(268);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileSearchResultsPageModule", function() { return ProfileSearchResultsPageModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44,13 +80,14 @@ ProfileSearchResultsPageModule = __decorate([
 
 /***/ }),
 
-/***/ 266:
+/***/ 268:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__repositories_repositories_component__ = __webpack_require__(197);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -58,6 +95,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -69,13 +107,15 @@ var ComponentsModule = (function () {
 ComponentsModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__["a" /* SearchResultsComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__["a" /* SearchResultsComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__repositories_repositories_component__["a" /* RepositoriesComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* IonicModule */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__["a" /* SearchResultsComponent */] // export the component to be use elsewhere
+            __WEBPACK_IMPORTED_MODULE_2__search_results_search_results_component__["a" /* SearchResultsComponent */],
+            __WEBPACK_IMPORTED_MODULE_3__repositories_repositories_component__["a" /* RepositoriesComponent */]
         ]
     })
 ], ComponentsModule);
@@ -84,7 +124,7 @@ ComponentsModule = __decorate([
 
 /***/ }),
 
-/***/ 267:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -122,13 +162,13 @@ SearchResultsComponent = __decorate([
 
 /***/ }),
 
-/***/ 269:
+/***/ 271:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_github_service__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_github_service__ = __webpack_require__(198);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileSearchResultsPage; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -158,6 +198,7 @@ var ProfileSearchResultsPage = (function () {
     ProfileSearchResultsPage.prototype.getUserInformation = function () {
         var _this = this;
         this.githubService.mockGetUserInformation(this.username).subscribe(function (data) { return _this.user = data; });
+        this.githubService.mockGetRepositoryInformation(this.username).subscribe(function (data) { return _this.repositories = data; });
     };
     return ProfileSearchResultsPage;
 }());
@@ -165,13 +206,12 @@ ProfileSearchResultsPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-profile-search-results-page',
-        template: "\n    <ion-header>\n      <ion-navbar color=\"dark\">\n        <ion-title>profileSearchResultsPage</ion-title>\n      </ion-navbar>\n    </ion-header>\n    \n    <ion-content padding>\n      <search-results [user]=\"user\"></search-results>\n    </ion-content>\n  "
+        template: "\n    <ion-header>\n      <ion-navbar color=\"dark\">\n        <ion-title>profileSearchResultsPage</ion-title>\n      </ion-navbar>\n    </ion-header>\n    \n    <ion-content padding>\n      <search-results [user]=\"user\"></search-results>\n      <repositories *ngFor=\"let repo of repositories\" [repository]=\"repo\"></repositories>\n    </ion-content>\n  "
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_github_service__["a" /* GithubService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_github_service__["a" /* GithubService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_github_service__["a" /* GithubService */]) === "function" && _c || Object])
 ], ProfileSearchResultsPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=profile-search-results-page.js.map
 
 /***/ })

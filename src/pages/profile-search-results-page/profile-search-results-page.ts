@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GithubService } from "../../providers/github-service";
 import { User } from '../../models/user.interface';
+import { Repository } from '../../models/repository.interface';
 
 @IonicPage()
 @Component({
@@ -15,6 +16,7 @@ import { User } from '../../models/user.interface';
     
     <ion-content padding>
       <search-results [user]="user"></search-results>
+      <repositories *ngFor="let repo of repositories" [repository]="repo"></repositories>
     </ion-content>
   `
 })
@@ -22,6 +24,7 @@ export class ProfileSearchResultsPage {
 
   username: string;
   user: User;
+  repositories: Repository[];
 
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
@@ -29,15 +32,16 @@ export class ProfileSearchResultsPage {
   }
 
   // prior to the view actually loading
-  ionViewWillLoad() {
+  ionViewWillLoad(): void {
     this.username = this.navParams.get('username');
     if (this.username) {
       this.getUserInformation();
     }
   }
 
-  getUserInformation() {
+  getUserInformation(): void {
     this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
+    this.githubService.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);
   }
 
 }
