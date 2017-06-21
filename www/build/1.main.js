@@ -60,32 +60,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ProfileSearchPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
+ * deep linking allow us to access parts of our app
+ * through the URL
  */
 var ProfileSearchPage = (function () {
     function ProfileSearchPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.username = '';
     }
     ProfileSearchPage.prototype.getUserInformation = function () {
         this.navCtrl.push('ProfileSearchResultsPage', {
-            username: "aneurysm.js"
+            username: this.username
         });
     };
     return ProfileSearchPage;
 }());
 ProfileSearchPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])({
+        segment: 'profile' // reflects how we're going to use deep linking in the app
+    }),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-profile-search-page',
         template: "\n    <ion-header>\n      <ion-navbar color=\"dark\">\n        <ion-title>Profile Search</ion-title>\n      </ion-navbar>\n    </ion-header>\n    \n    <ion-content padding>\n      <ion-item>\n        <ion-label floating>Username</ion-label>\n        <ion-input type=\"text\" [(ngModel)]=\"username\"></ion-input>\n      </ion-item>\n      <ion-fab bottom right>\n        <button ion-fab (click)=\"getUserInformation()\">\n          <ion-icon name=\"search\"></ion-icon>\n        </button>\n      </ion-fab>\n    </ion-content>\n  "
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], ProfileSearchPage);
 
+var _a, _b;
 //# sourceMappingURL=profile-search-page.js.map
 
 /***/ })

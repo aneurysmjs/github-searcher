@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GithubService } from "../../providers/github-service";
+import { User } from '../../models/user.interface';
+import { Repository } from '../../models/repository.interface';
 
-/**
- * Generated class for the ProfileSearchResultsPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
+@IonicPage({
+  segment: 'profile/results/:username' // `username` is the navParam's variable that's been passed through
+})
 @Component({
   selector: 'page-profile-search-results-page',
   template:  `
@@ -18,22 +17,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
     </ion-header>
     
     <ion-content padding>
-
+      <search-results [user]="user"></search-results>
+      <repositories *ngFor="let repo of repositories" [repository]="repo"></repositories>
     </ion-content>
   `
 })
 export class ProfileSearchResultsPage {
 
   username: string;
+  user: User;
+  repositories: Repository[];
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController,
+              private navParams: NavParams,
+              private githubService: GithubService) {
   }
 
   // prior to the view actually loading
-  ionViewWillLoad() {
+  ionViewWillLoad(): void {
     this.username = this.navParams.get('username');
-    console.log(`this.username`);
-    console.log(this.username);
+    if (this.username) {
+      this.getUserInformation();
+    }
+  }
+
+  getUserInformation(): void {
+    /*this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
+    this.githubService.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);*/
+    this.githubService.getUserInformation(this.username).subscribe((data: User) => this.user = data);
+    this.githubService.getUserRepositories(this.username).subscribe((data: Repository[]) => this.repositories = data);
   }
 
 }
