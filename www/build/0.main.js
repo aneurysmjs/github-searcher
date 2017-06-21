@@ -205,7 +205,9 @@ var ProfileSearchResultsPage = (function () {
     return ProfileSearchResultsPage;
 }());
 ProfileSearchResultsPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])({
+        segment: 'profile/results/:username' // `username` is the navParam's variable that's been passed through
+    }),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-profile-search-results-page',
         template: "\n    <ion-header>\n      <ion-navbar color=\"dark\">\n        <ion-title>profileSearchResultsPage</ion-title>\n      </ion-navbar>\n    </ion-header>\n    \n    <ion-content padding>\n      <search-results [user]=\"user\"></search-results>\n      <repositories *ngFor=\"let repo of repositories\" [repository]=\"repo\"></repositories>\n    </ion-content>\n  "
