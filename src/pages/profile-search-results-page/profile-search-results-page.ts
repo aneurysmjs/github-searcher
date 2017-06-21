@@ -40,8 +40,9 @@ export class ProfileSearchResultsPage {
   }
 
   getUserInformation(): void {
-    this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
-    this.githubService.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);
+    /*this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
+    this.githubService.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);*/
+    this.githubService.getUserInformation(this.username).subscribe((data: User) => this.user = data);
   }
 
 }

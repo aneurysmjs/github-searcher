@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { GithubService } from '../providers/github-service';
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { GithubService } from '../providers/github-service';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

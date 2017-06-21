@@ -32,12 +32,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfileSearchPage {
 
+  username: string = '';
+
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   getUserInformation(): void {
     this.navCtrl.push('ProfileSearchResultsPage', {
-      username: `aneurysm.js`
+      username: this.username
     });
   }
 
