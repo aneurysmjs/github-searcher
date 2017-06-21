@@ -200,6 +200,7 @@ var ProfileSearchResultsPage = (function () {
         /*this.githubService.mockGetUserInformation(this.username).subscribe((data: User) => this.user = data);
         this.githubService.mockGetRepositoryInformation(this.username).subscribe((data: Repository[]) => this.repositories = data);*/
         this.githubService.getUserInformation(this.username).subscribe(function (data) { return _this.user = data; });
+        this.githubService.getUserRepositories(this.username).subscribe(function (data) { return _this.repositories = data; });
     };
     return ProfileSearchResultsPage;
 }());

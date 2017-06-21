@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ErrorHandler } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from "@angular/http";
 import 'rxjs/add/operator/map';
@@ -31,18 +31,31 @@ export class GithubService {
    * @return {Observable}
    */
   getUserInformation(username: string): Observable<User> {
-    console.log('user', username);
     return this.http.get(`${this.baseUrl}/${username}`)
-    /**
-     * before start changing the data, for example 
-     * changing it and return data.json() is actually
-     * log pit the response before we do anything to it
-     * and it can be done by import the RxJs's `do` operator
-     */
-      .do((data: Response) => console.log(data))
-      .map((data: Response) => data.json())
-      .do((data: Response) => console.log(data))
-      .catch((error: Response) => Observable.throw(error.json().error || "Server Error"));
+      .do(this.logData)
+      .map(this.extractData)
+      .do(this.logData)
+      .catch(this.errorHandler);
+  }
+
+  getUserRepositories(username: string): Observable<Repository[]> {
+    return this.http.get(`${this.baseUrl}/${username}/repos`)
+      .do(this.logData)
+      .map(this.extractData)
+      .do(this.logData)
+      .catch(this.errorHandler);
+  }
+
+  private errorHandler(error: Response | any) {
+    return Observable.throw(error.json().error || "Server Error");
+  }
+
+  private logData(response: Response): void {
+    console.log(response);    
+  }
+
+  private extractData(response: Response) {
+    return response.json();
   }
 
   /**

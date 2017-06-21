@@ -77122,12 +77122,27 @@ var GithubService = (function () {
      * @return {Observable}
      */
     GithubService.prototype.getUserInformation = function (username) {
-        console.log('user', username);
         return this.http.get(this.baseUrl + "/" + username)
-            .do(function (data) { return console.log(data); })
-            .map(function (data) { return data.json(); })
-            .do(function (data) { return console.log(data); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error"); });
+            .do(this.logData)
+            .map(this.extractData)
+            .do(this.logData)
+            .catch(this.errorHandler);
+    };
+    GithubService.prototype.getUserRepositories = function (username) {
+        return this.http.get(this.baseUrl + "/" + username + "/repos")
+            .do(this.logData)
+            .map(this.extractData)
+            .do(this.logData)
+            .catch(this.errorHandler);
+    };
+    GithubService.prototype.errorHandler = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    GithubService.prototype.logData = function (response) {
+        console.log(response);
+    };
+    GithubService.prototype.extractData = function (response) {
+        return response.json();
     };
     /**
      *
