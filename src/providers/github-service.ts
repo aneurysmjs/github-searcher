@@ -1,4 +1,4 @@
-import { Injectable, ErrorHandler } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from "@angular/http";
 import 'rxjs/add/operator/map';
@@ -31,15 +31,15 @@ export class GithubService {
    * @return {Observable}
    */
   getUserInformation(username: string): Observable<User> {
-    return this.http.get(`${this.baseUrl}/${username}`)
-      .do(this.logData)
-      .map(this.extractData)
-      .do(this.logData)
-      .catch(this.errorHandler);
+    return this.fetchData(`${username}`);
   }
 
   getUserRepositories(username: string): Observable<Repository[]> {
-    return this.http.get(`${this.baseUrl}/${username}/repos`)
+    return this.fetchData(`${username}/repos`);
+  }
+
+  private fetchData(url: string): Observable<User | Repository[]> {
+    return this.http.get(`${this.baseUrl}/${url}`)
       .do(this.logData)
       .map(this.extractData)
       .do(this.logData)

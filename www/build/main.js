@@ -77122,14 +77122,13 @@ var GithubService = (function () {
      * @return {Observable}
      */
     GithubService.prototype.getUserInformation = function (username) {
-        return this.http.get(this.baseUrl + "/" + username)
-            .do(this.logData)
-            .map(this.extractData)
-            .do(this.logData)
-            .catch(this.errorHandler);
+        return this.fetchData("" + username);
     };
     GithubService.prototype.getUserRepositories = function (username) {
-        return this.http.get(this.baseUrl + "/" + username + "/repos")
+        return this.fetchData(username + "/repos");
+    };
+    GithubService.prototype.fetchData = function (url) {
+        return this.http.get(this.baseUrl + "/" + url)
             .do(this.logData)
             .map(this.extractData)
             .do(this.logData)
